@@ -33,4 +33,27 @@ class HaberlerDataSource(var hdao: HaberlerDao) {
             }
         })
     }
+
+    fun fetchRSS(rssUrl : String, callback: (List<HaberlerItem>) -> Unit, errorCallback: (String) -> Unit) {
+        hdao.getNewsfromRSS(rssUrl).enqueue(object : Callback<Haberler> {
+            override fun onResponse(call: Call<Haberler>, response: Response<Haberler>) {
+                if (response.isSuccessful) {
+                    // response.body() içinde gelen veri, `Haberler` türünde olacak, bu yüzden
+                    // `Haberler`'in `result` özelliğinden `List<HaberlerItem>` alınır.
+                    response.body()?.result?.let {
+                        callback(it) // HaberlerItem listesi döndürülüyor
+                    } ?: errorCallback("No data found")
+                } else {
+                    val errorBody = response.errorBody()?.string() ?: "Unknown error"
+                    errorCallback("Failed response code: ${response.code()}, message: $errorBody")
+                    Log.e("API_ERROR", "Code: ${response.code()}, Body: $errorBody")
+                }
+            }
+
+            override fun onFailure(call: Call<Haberler>, t: Throwable) {
+                errorCallback("Error: ${t.message}")
+
+            }
+        })
+    }
 }

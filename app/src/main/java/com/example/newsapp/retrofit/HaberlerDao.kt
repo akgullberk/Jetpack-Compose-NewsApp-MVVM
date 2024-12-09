@@ -11,4 +11,9 @@ interface HaberlerDao {
         @Query("country") country: String,
         @Query("tag") tag: String
     ): Call<Haberler>
+
+    @GET("news/getNewsfromRSS")
+    fun getNewsfromRSS(
+        @Query("data.rss_url") rssUrl : String
+    ): Call<Haberler>
 }

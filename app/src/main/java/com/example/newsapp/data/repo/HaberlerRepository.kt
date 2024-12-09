@@ -9,4 +9,8 @@ class HaberlerRepository(var hds: HaberlerDataSource) {
     fun getNews(country: String, tag: String, callback: (List<HaberlerItem>) -> Unit, errorCallback: (String) -> Unit) {
         hds.fetchNews(country, tag, callback, errorCallback)
     }
+
+    fun getNewsfromRSS(rssUrl : String, callback: (List<HaberlerItem>) -> Unit, errorCallback: (String) -> Unit) {
+        hds.fetchRSS(rssUrl, callback, errorCallback)
+    }
 }

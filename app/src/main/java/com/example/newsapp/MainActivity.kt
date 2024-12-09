@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.newsapp.ui.theme.NewsAppTheme
 import com.example.newsapp.uix.view.Anasayfa
 import com.example.newsapp.uix.view.SayfaGecisleri
+import com.example.newsapp.uix.viewmodel.RSSViewModel
 import com.example.newsapp.viewmodel.AnasayfaViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,12 +23,13 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     val anasayfaViewModel: AnasayfaViewModel by viewModels()
+    val rssViewModel: RSSViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             NewsAppTheme {
-                SayfaGecisleri(anasayfaViewModel)
+                SayfaGecisleri(anasayfaViewModel,rssViewModel)
 
             }
 
