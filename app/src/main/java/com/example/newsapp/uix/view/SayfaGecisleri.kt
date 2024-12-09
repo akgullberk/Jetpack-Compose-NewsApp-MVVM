@@ -12,8 +12,12 @@ fun SayfaGecisleri(anasayfaViewModel: AnasayfaViewModel){
     NavHost(navController = navController, startDestination = "anasayfa") {
 
     composable("anasayfa"){
-        Anasayfa(anasayfaViewModel)
+        Anasayfa(anasayfaViewModel,navController)
     }
+
+        composable("rss"){
+            Rss(navController)
+        }
     
 }
 }
