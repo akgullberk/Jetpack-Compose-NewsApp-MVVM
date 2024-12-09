@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -73,6 +75,22 @@ dependencies {
     implementation ("androidx.compose.material:material:1.5.1") // Material Design bileşenleri
     implementation ("androidx.compose.ui:ui:1.5.1") // Temel UI bileşenleri
     implementation ("androidx.compose.ui:ui-tooling:1.5.1") // Önizleme için
-    implementation ("androidx.compose.runtime:runtime-livedata:1.5.1") // LiveData desteği için
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.5.1")
+    implementation("androidx.activity:activity-ktx:1.6.1")
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
+
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+
+    implementation("com.squareup.retrofit2:retrofit:2.6.0")
+    implementation("com.google.code.gson:gson:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.10.0")
+
+    implementation ("com.github.skydoves:landscapist-glide:1.4.4")
+
+    implementation ("androidx.compose.foundation:foundation:1.5.0")
+
 
 }
