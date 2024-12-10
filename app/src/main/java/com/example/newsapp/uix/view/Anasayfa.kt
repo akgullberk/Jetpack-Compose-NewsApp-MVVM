@@ -30,6 +30,8 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -112,22 +114,29 @@ fun Anasayfa(anasayfaViewModel: AnasayfaViewModel,navController: NavController){
                     backgroundColor = Color(0xFF0b0e13)
                 ){
                     BottomNavigationItem(
-                        icon = { Icon(Icons.Default.Home, contentDescription = "Home",tint = Color.White,
-                            modifier = Modifier.size(32.dp,32.dp)) },
+
+                        icon = {
+
+                            Icon(Icons.Default.Home, contentDescription = "Home", tint = Color(0xFF8e99a2),
+                                modifier = Modifier.size(32.dp,32.dp)) },
 
                         selected = selectedItem == 0,
                         onClick = {  }
                     )
                     BottomNavigationItem(
-                        icon = { Icon(Icons.Default.Favorite, contentDescription = "Favorites",tint = Color.White,
-                            modifier = Modifier.size(32.dp,32.dp)) },
+                        icon = {
+
+                            Icon(Icons.Default.Search, contentDescription = "",tint = Color(0xFF8e99a2),
+                                modifier = Modifier.size(32.dp,32.dp)) },
 
                         selected = selectedItem == 1,
                         onClick = { navController.navigate("rss") }
                     )
                     BottomNavigationItem(
-                        icon = { Icon(Icons.Default.Settings, contentDescription = "Settings", tint = Color.White,
-                            modifier = Modifier.size(32.dp,32.dp)) },
+                        icon = {
+
+                            Icon(Icons.Default.Person, contentDescription = "",tint = Color(0xFF8e99a2),
+                                modifier = Modifier.size(32.dp,32.dp)) },
 
                         selected = selectedItem == 2,
                         onClick = { selectedItem = 2 }
@@ -163,8 +172,8 @@ fun NewsItem(haberlerItem: HaberlerItem) {
     val context = LocalContext.current
     Box(
         modifier = Modifier
-        .clip(RoundedCornerShape(12.dp))
-        .clickable {
+            .clip(RoundedCornerShape(12.dp))
+            .clickable {
                 // Tıklanınca URL'yi tarayıcıda aç
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(haberlerItem.url))
                 context.startActivity(intent)
