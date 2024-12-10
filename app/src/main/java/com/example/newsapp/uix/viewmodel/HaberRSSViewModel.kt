@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class RSSViewModel @Inject constructor(var hrepo: HaberlerRepository) : ViewModel(){
+class HaberRSSViewModel @Inject constructor(var hrepo: HaberlerRepository) : ViewModel(){
 
     private val _newsList = MutableLiveData<List<HaberlerItem>>()
     val newsList: LiveData<List<HaberlerItem>> get() = _newsList

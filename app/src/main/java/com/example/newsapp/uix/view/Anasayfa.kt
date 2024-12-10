@@ -61,6 +61,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.newsapp.R
 import com.example.newsapp.data.entity.HaberlerItem
+import com.example.newsapp.uix.components.BottomBar
 import com.example.newsapp.viewmodel.AnasayfaViewModel
 import com.skydoves.landscapist.glide.GlideImage
 
@@ -106,6 +107,10 @@ fun Anasayfa(anasayfaViewModel: AnasayfaViewModel,navController: NavController){
             )
         },
         bottomBar = {
+            
+            BottomBar(selectedItem = 0, navController = navController)
+            
+            /*
             BottomAppBar(
                 containerColor = Color(0xFF0b0e13),
                 modifier = Modifier.height(76.dp) // Yüksekliği ayarlayın
@@ -114,35 +119,33 @@ fun Anasayfa(anasayfaViewModel: AnasayfaViewModel,navController: NavController){
                     backgroundColor = Color(0xFF0b0e13)
                 ){
                     BottomNavigationItem(
-
                         icon = {
-
                             Icon(Icons.Default.Home, contentDescription = "Home", tint = Color(0xFF8e99a2),
-                                modifier = Modifier.size(32.dp,32.dp)) },
-
+                                modifier = Modifier.size(32.dp,32.dp))
+                               },
                         selected = selectedItem == 0,
                         onClick = {  }
                     )
                     BottomNavigationItem(
                         icon = {
-
                             Icon(Icons.Default.Search, contentDescription = "",tint = Color(0xFF8e99a2),
-                                modifier = Modifier.size(32.dp,32.dp)) },
-
+                                modifier = Modifier.size(32.dp,32.dp))
+                               },
                         selected = selectedItem == 1,
                         onClick = { navController.navigate("rss") }
                     )
                     BottomNavigationItem(
                         icon = {
-
                             Icon(Icons.Default.Person, contentDescription = "",tint = Color(0xFF8e99a2),
-                                modifier = Modifier.size(32.dp,32.dp)) },
-
+                                modifier = Modifier.size(32.dp,32.dp))
+                               },
                         selected = selectedItem == 2,
                         onClick = { selectedItem = 2 }
                     )
                 }
             }
+            
+             */
         }
     ) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
