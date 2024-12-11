@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.newsapp.R
 import com.example.newsapp.uix.components.BottomBar
+import com.example.newsapp.uix.components.TopBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -61,17 +62,7 @@ fun Rss(navController: NavController){
     Scaffold(
     containerColor = Color(0xFF1b1a1f),
         topBar = {
-            TopAppBar(
-                title = {
-                    Row {
-                        Icon(painter = painterResource(id = R.drawable.hamburger), contentDescription = "", modifier = Modifier.size(24.dp,28.dp), tint = Color.White)
-                        Spacer(modifier = Modifier.padding(8.dp))
-                        Text(text = "KAYNAKLAR", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFF1b1a1f)),
-
-            )
+            TopBar(text = "KAYNAKLAR")
         },
         bottomBar = {
             BottomBar(selectedItem = 1, navController = navController)
@@ -95,7 +86,7 @@ fun Rss(navController: NavController){
 
 @Composable
 fun GridItem(data: ItemData,navController: NavController) {
-    Box(modifier = Modifier.clickable { navController.navigate("haberrss") }) {
+    Box(modifier = Modifier.clickable { navController.navigate("haberrss/${data.text}") }) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()

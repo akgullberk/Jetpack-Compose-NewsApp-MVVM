@@ -110,42 +110,7 @@ fun Anasayfa(anasayfaViewModel: AnasayfaViewModel,navController: NavController){
             
             BottomBar(selectedItem = 0, navController = navController)
             
-            /*
-            BottomAppBar(
-                containerColor = Color(0xFF0b0e13),
-                modifier = Modifier.height(76.dp) // Yüksekliği ayarlayın
-            ) {
-                BottomNavigation(
-                    backgroundColor = Color(0xFF0b0e13)
-                ){
-                    BottomNavigationItem(
-                        icon = {
-                            Icon(Icons.Default.Home, contentDescription = "Home", tint = Color(0xFF8e99a2),
-                                modifier = Modifier.size(32.dp,32.dp))
-                               },
-                        selected = selectedItem == 0,
-                        onClick = {  }
-                    )
-                    BottomNavigationItem(
-                        icon = {
-                            Icon(Icons.Default.Search, contentDescription = "",tint = Color(0xFF8e99a2),
-                                modifier = Modifier.size(32.dp,32.dp))
-                               },
-                        selected = selectedItem == 1,
-                        onClick = { navController.navigate("rss") }
-                    )
-                    BottomNavigationItem(
-                        icon = {
-                            Icon(Icons.Default.Person, contentDescription = "",tint = Color(0xFF8e99a2),
-                                modifier = Modifier.size(32.dp,32.dp))
-                               },
-                        selected = selectedItem == 2,
-                        onClick = { selectedItem = 2 }
-                    )
-                }
-            }
-            
-             */
+
         }
     ) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
