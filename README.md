@@ -17,3 +17,5 @@ This is a news application that retrieves news articles using an API and RSS fee
 
 ![Screenshot_20241210_153432](https://github.com/user-attachments/assets/880d7f5f-039c-4b22-807e-26b64ae743f0)
 ![Screenshot_20241210_153443](https://github.com/user-attachments/assets/6963d195-d512-4b58-909c-a23fe5dd8a49)
+![Screenshot_20241211_235227](https://github.com/user-attachments/assets/57d83bb9-b336-4ef4-a358-d6b1e495b8fd)
+
